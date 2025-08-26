@@ -13,7 +13,7 @@ function createServer() {
 
   app.use('/users', userRouter);
   app.use('/expenses', expenseRouter);
-  app.use('/category', categoryRouter);
+  app.use('/categories', categoryRouter);
 
   return app;
 }

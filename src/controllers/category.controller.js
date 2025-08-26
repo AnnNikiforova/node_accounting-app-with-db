@@ -2,9 +2,9 @@ const categoryService = require('../services/category.service');
 
 class CategoryController {
   get = async (req, res) => {
-    const categores = await categoryService.getAll();
+    const categories = await categoryService.getAll();
 
-    res.status(200).json(categores);
+    res.status(200).json(categories);
   };
 
   getOne = async (req, res) => {
@@ -12,7 +12,7 @@ class CategoryController {
     const category = await categoryService.getById(id);
 
     if (!category) {
-      return res.status(404).send({ message: 'Expense not found' });
+      return res.status(404).send({ message: 'Category not found' });
     }
 
     res.status(200).json(category);
