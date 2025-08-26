@@ -3,7 +3,7 @@ const { User } = require('../models/User.model');
 class UserService {
   getAll = () => User.findAll();
   getById = (id) => User.findByPk(id);
-  create = (name) => User.create(name);
+  create = (userData) => User.create(userData);
 
   update = async (id, { name }) => {
     await User.update({ name }, { where: { id } });

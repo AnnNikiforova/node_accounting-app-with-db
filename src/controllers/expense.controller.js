@@ -5,7 +5,7 @@ class ExpenseController {
   getByFilter = async (req, res) => {
     const filteredExpenses = await expenseService.getByFilter(req.query);
 
-    res.send(filteredExpenses);
+    res.status(200).json(filteredExpenses);
   };
 
   getOne = async (req, res) => {
@@ -26,7 +26,7 @@ class ExpenseController {
       return res.status(400).send({ message: 'Required fields missing' });
     }
 
-    const user = userService.getById(userId);
+    const user = await userService.getById(userId);
 
     if (!user) {
       return res.status(400).send({ message: 'User not found' });
@@ -55,7 +55,7 @@ class ExpenseController {
     const updatesData = req.body;
 
     if ('userId' in updatesData) {
-      const user = userService.getById(updatesData.userId);
+      const user = await userService.getById(updatesData.userId);
 
       if (!user) {
         return res.status(400).send({ message: 'User not found' });

@@ -4,6 +4,7 @@ const express = require('express');
 
 const userRouter = require('./routes/user.router');
 const expenseRouter = require('./routes/expense.router');
+const categoryRouter = require('./routes/category.router');
 
 function createServer() {
   const app = express();
@@ -12,6 +13,7 @@ function createServer() {
 
   app.use('/users', userRouter);
   app.use('/expenses', expenseRouter);
+  app.use('/category', categoryRouter);
 
   return app;
 }
